@@ -292,9 +292,14 @@ let deck=get('deck',CFG.free[0]), mode='card';
 {const q=new URLSearchParams(location.search).get('bai');if(q&&DECKS.some(d=>d.id===+q))deck=+q}
 const sel=$('#deck');
 function fillSel(){
-  const groups={};DECKS.forEach(d=>{(groups[d.topic]=groups[d.topic]||[]).push(d)});
-  sel.innerHTML=Object.keys(groups).map(t=>`<optgroup label="${esc(t)}">`+groups[t].map(d=>`<option value="${d.id}">${isOpen(d.id)?'':'🔒 '}${isNew(d.id)?'🆕 ':''}${esc(d.title)} · ${d.n} từ</option>`).join('')+'</optgroup>').join('');
-  sel.value=deck;
+  const opt=d=>`<option value="${d.id}">${isOpen(d.id)?'':'🔒 '}${isNew(d.id)?'🆕 ':''}${esc(d.title)} · ${d.n} từ</option>`;
+  const free=CFG.free.map(id=>DECKS.find(d=>d.id===id)).filter(Boolean);
+  const L=level(),un=DECKS.filter(d=>!CFG.free.includes(d.id)&&isOpen(d.id));
+  const groups={};DECKS.filter(d=>!CFG.free.includes(d.id)&&!isOpen(d.id)).forEach(d=>{(groups[d.topic]=groups[d.topic]||[]).push(d)});
+  let h=`<optgroup label="🎁 Miễn phí – học ngay">${free.map(opt).join('')}</optgroup>`;
+  if(un.length)h+=`<optgroup label="🔓 Đã mở khoá (cấp ${L})">${un.map(opt).join('')}</optgroup>`;
+  h+=Object.keys(groups).sort().map(t=>`<optgroup label="🔒 ${esc(t)}">`+groups[t].sort((a,b)=>a.title.localeCompare(b.title)).map(opt).join('')+'</optgroup>').join('');
+  sel.innerHTML=h;sel.value=deck;
 }
 function unlockBar(){
   const L=level(),open=DECKS.filter(d=>isOpen(d.id)).length;
