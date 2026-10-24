@@ -372,7 +372,10 @@ function newBar(){const n=CFG.newest&&DECKS.find(d=>d.id===CFG.newest.id);$('#ne
 function pool(){return CARDS.filter(c=>c.b===deck)}
 function stats(){const a=pool();$('#sTotal').textContent=a.length;$('#sKnown').textContent=a.filter(known).length;$('#sWrong').textContent=a.filter(wrong).length;$('#bar').style.width=(a.length?a.filter(known).length/a.length*100:0)+'%'}
 const title=b=>DECKS.find(d=>d.id===b).title;
-function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.95;speechSynthesis.speak(u)}catch(e){}}
+let EN_VOICE=null;
+function pickVoice(){try{const vs=speechSynthesis.getVoices().filter(v=>/^en[-_]/i.test(v.lang));if(!vs.length)return;const pref=[/Google UK English Female/i,/Google US English/i,/Samantha|Daniel|Karen|Serena|Moira/i,/en[-_]GB/i,/en[-_]US/i];for(const r of pref){const v=vs.find(v=>r.test(v.name)||r.test(v.lang));if(v){EN_VOICE=v;return}}EN_VOICE=vs[0]}catch(e){}}
+try{pickVoice();speechSynthesis.onvoiceschanged=pickVoice}catch(e){}
+function speak(t){try{speechSynthesis.cancel();if(!EN_VOICE)pickVoice();const u=new SpeechSynthesisUtterance(t);if(EN_VOICE){u.voice=EN_VOICE;u.lang=EN_VOICE.lang}else u.lang='en-US';u.rate=.95;speechSynthesis.speak(u)}catch(e){}}
 function gram(c){if(!c.g)return'';const u=/\[U\]/.test(c.g)&&!/\[C\]/.test(c.g);return `<span class="gram${u?' u':''}">${esc(c.g)}</span>`}
 
 /* ----- flashcards ----- */
