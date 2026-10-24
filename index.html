@@ -381,7 +381,7 @@ function face(c,side){
 }
 function renderCard(){
   const el=$('#card');
-  if(qi>=queue.length){const k=pool().filter(c=>P[c.id]&&P[c.id].l>=1).length;el.innerHTML=`<div class="empty donebox"><b>🎉 Xong ${queue.length} thẻ – đã thuộc ${k}/${pool().length} từ!</b><button class="yes" id="mkShare">Tạo thẻ thành tích để chia sẻ</button><img class="sharepv" id="sharepv" hidden alt="Thẻ thành tích"><div class="chips" id="shareAct" hidden><button id="dlShare">Tải ảnh</button><button id="nsShare">Chia sẻ</button></div></div>`;$('#cNo').textContent='';$('#cCount').textContent='';track('finish_round',{deck:title(deck)});$('#mkShare').onclick=e=>{e.stopPropagation();shareCard(k)};return}
+  if(qi>=queue.length){const k=pool().filter(c=>P[c.id]&&P[c.id].l>=1).length;el.innerHTML=`<div class="empty donebox"><b>🎉 Xong ${queue.length} thẻ – đã nhớ ${k}/${pool().length} từ!</b><span class="small">Từ nào trả lời đúng 2 lượt sẽ được tính là “đã thuộc”.</span><button class="yes" id="mkShare">Tạo thẻ thành tích để chia sẻ</button><img class="sharepv" id="sharepv" hidden alt="Thẻ thành tích"><div class="chips" id="shareAct" hidden><button id="dlShare">Tải ảnh</button><button id="nsShare">Chia sẻ</button></div></div>`;$('#cNo').textContent='';$('#cCount').textContent='';track('finish_round',{deck:title(deck)});$('#mkShare').onclick=e=>{e.stopPropagation();shareCard(k)};return}
   const c=queue[qi];el.innerHTML=face(c,flipped);el.scrollTop=0;$('#cNo').textContent=String(qi+1).padStart(3,'0');$('#cDeck').textContent=title(c.b);$('#cCount').textContent=`Thẻ ${qi+1} / ${queue.length}`;
 }
 function shareCard(k){
