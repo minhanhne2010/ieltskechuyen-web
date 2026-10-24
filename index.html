@@ -204,6 +204,11 @@ html,body{overflow-anchor:none}
   .app{--cardH:clamp(380px,calc(100dvh - 210px),680px)}
   .word{font-size:3.6rem}
 }
+
+/* chặn zoom khi chạm nhanh 2 lần trên điện thoại */
+html,body,button,a,.card,.tab,select,input,.sheet{touch-action:manipulation}
+button{-webkit-tap-highlight-color:transparent}
+@media (max-width:979px){input,select,textarea{font-size:16px!important}.sgap input{font-size:16px}}
 </style>
 
 <div class="wrap app">
