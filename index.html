@@ -1,0 +1,416 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>IELTS Kể Chuyện Wordbank</title>
+<meta name="description" content="IELTS Kể Chuyện – học từ vựng IELTS Reading qua câu chuyện: thẻ lật, gõ từ, kể chuyện.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Literata:opsz,wght@7..72,400;7..72,600&family=Noto+Sans:wght@400;500&family=Noto+Sans+Mono:wght@500&display=swap">
+<style>
+/* Layout: an IELTS answer sheet — ruled paper, maroon print, one card at a time, controls on a strip above */
+:root{
+  --paper:#fbfaf8; --sheet:#ffffff; --ink:#22201f; --muted:#6d6663; --rule:#ead9d9;
+  --maroon:#8c2236; --maroon-soft:#f6e6e9; --good:#2f7a4f; --good-soft:#e3f1e8; --bad:#b3362c; --bad-soft:#fbe7e4; --star:#b07a12;
+  --f-display:"Familjen Grotesk",system-ui,sans-serif;
+  --f-body:"Literata",Georgia,serif;
+  --f-ipa:"Noto Sans","Segoe UI","Lucida Sans Unicode",sans-serif;
+  --f-mono:"Noto Sans Mono",ui-monospace,monospace;
+  --f-zh:"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#1b191a; --sheet:#242123; --ink:#efe9e7; --muted:#a59c99; --rule:#3a3034;
+  --maroon:#e58a9b; --maroon-soft:#3a2229; --good:#7cc79a; --good-soft:#1f3328; --bad:#f08a7f; --bad-soft:#3d2320; --star:#e3b552; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#1b191a; --sheet:#242123; --ink:#efe9e7; --muted:#a59c99; --rule:#3a3034;
+  --maroon:#e58a9b; --maroon-soft:#3a2229; --good:#7cc79a; --good-soft:#1f3328; --bad:#f08a7f; --bad-soft:#3d2320; --star:#e3b552; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:20px 48px;display:flex;flex-direction:column;gap:16px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;border-bottom:2px solid var(--maroon);padding-bottom:10px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.6rem;letter-spacing:-.01em;margin:0;color:var(--maroon);text-wrap:balance}
+.sub{font-family:var(--f-display);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stats{display:flex;gap:14px;font-family:var(--f-display);font-variant-numeric:tabular-nums}
+.stat b{display:block;font-size:1.25rem;line-height:1.1}
+.stat span{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.stat.k b{color:var(--good)} .stat.x b{color:var(--bad)}
+.bar{height:6px;border-radius:3px;background:var(--rule);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--good);width:0;transition:width .4s}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+select,input[type=search],input[type=text]{font:inherit;color:var(--ink);background:var(--sheet);border:1px solid var(--rule);border-radius:8px;padding:8px 10px}
+select{font-family:var(--f-display);max-width:100%}
+.chips,.tabs{display:flex;flex-wrap:wrap;gap:6px}
+button{font-family:var(--f-display);font-size:.9rem;font-weight:600;cursor:pointer;border-radius:8px;border:1px solid var(--rule);background:var(--sheet);color:var(--ink);padding:8px 12px}
+button:hover{border-color:var(--maroon)}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--maroon);outline-offset:2px}
+.chip[aria-pressed="true"],.tab[aria-selected="true"]{background:var(--maroon);border-color:var(--maroon);color:var(--sheet)}
+.tabs{border-bottom:1px solid var(--rule);gap:0}
+.tab{border:none;border-bottom:3px solid transparent;border-radius:0;background:none;padding:10px 14px;color:var(--muted)}
+.tab[aria-selected="true"]{background:none;color:var(--maroon);border-bottom-color:var(--maroon)}
+.sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;position:relative;
+  background-image:repeating-linear-gradient(to bottom,transparent 0 31px,var(--rule) 31px 32px);background-position:0 18px}
+.qno{position:absolute;top:14px;left:16px;font-family:var(--f-mono);font-size:.78rem;color:var(--maroon);font-variant-numeric:tabular-nums}
+.deckname{position:absolute;top:14px;right:16px;font-family:var(--f-display);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:right;max-width:60%}
+.card{min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 20px 24px;gap:8px;cursor:pointer;user-select:none}
+.word{font-family:var(--f-display);font-weight:700;font-size:clamp(1.7rem,6vw,2.6rem);line-height:1.15;overflow-wrap:anywhere;text-wrap:balance}
+.star{color:var(--star);font-size:.8em;vertical-align:.15em;margin-left:.15em}
+.meta{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;align-items:center}
+.pos{font-family:var(--f-mono);font-size:.78rem;color:var(--maroon);background:var(--maroon-soft);padding:2px 8px;border-radius:999px}
+.ipa{font-family:var(--f-ipa);color:var(--muted);font-size:1.05rem}
+.vn{font-size:1.15rem;max-width:34ch}
+.zh{font-family:var(--f-zh);color:var(--muted)}
+.ex{max-width:46ch;margin-top:6px;padding:10px 12px;border-left:3px solid var(--maroon);background:var(--maroon-soft);border-radius:0 8px 8px 0;text-align:left;font-size:.98rem;line-height:1.5;display:flex;gap:8px;align-items:flex-start}
+.ex mark{background:none;color:var(--maroon);font-weight:600}
+.ex .lbl{display:block;font-family:var(--f-display);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.ex .speak{width:32px;height:32px;flex:none}
+.ex .speak svg{width:15px;height:15px}
+td .exs{font-size:.85rem;color:var(--muted);margin-top:4px;font-style:italic}
+td .exs mark{background:none;color:var(--maroon);font-style:normal;font-weight:600}
+
+.hint{font-family:var(--f-display);font-size:.78rem;color:var(--muted);letter-spacing:.04em}
+.speak{border-radius:999px;width:40px;height:40px;padding:0;display:inline-grid;place-items:center;font-size:1.1rem}
+.speak svg{width:18px;height:18px;fill:currentColor}
+.back{border-top:1px dashed var(--rule);padding-top:12px;margin-top:6px;display:flex;flex-direction:column;gap:6px;align-items:center}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.actions button{padding:14px;font-size:1rem}
+.no{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+.yes{background:var(--good-soft);color:var(--good);border-color:transparent}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.small{font-family:var(--f-display);font-size:.82rem;color:var(--muted)}
+.dict{padding:48px 20px 24px;display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
+.dict input{width:100%;max-width:420px;font-family:var(--f-mono);font-size:1.3rem;text-align:center;padding:12px;border-width:2px}
+.dict input.ok{border-color:var(--good);background:var(--good-soft)} .dict input.err{border-color:var(--bad);background:var(--bad-soft)}
+.diff{font-family:var(--f-mono);font-size:1.2rem;letter-spacing:.02em;overflow-wrap:anywhere}
+.diff .m{background:var(--good-soft);color:var(--good);text-decoration:underline;text-underline-offset:3px}
+.diff .x{color:var(--bad);text-decoration:line-through}
+.bigplay{width:72px;height:72px;font-size:1.6rem}
+.bigplay svg{width:30px;height:30px}
+.list{overflow-x:auto;background:var(--sheet);border:1px solid var(--rule);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--f-display);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);position:sticky;top:0;background:var(--sheet)}
+td.w{font-family:var(--f-display);font-weight:600}
+td .ipa{font-size:.85rem}
+.badge{font-family:var(--f-mono);font-size:.72rem;padding:1px 6px;border-radius:999px;white-space:nowrap}
+.badge.x{background:var(--bad-soft);color:var(--bad)} .badge.k{background:var(--good-soft);color:var(--good)}
+.empty{padding:40px 20px;text-align:center;color:var(--muted)}
+.sync{font-family:var(--f-display);font-size:.72rem;color:var(--muted)}
+.voicebox{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.voicebox select{flex:1;min-width:0;max-width:340px}
+.voicebox .small{flex-basis:100%}
+.voicebox label.small{flex-basis:auto}
+.camb{font-family:var(--f-display);font-size:.78rem;font-weight:600;color:var(--maroon);text-decoration:none;border:1px solid var(--rule);border-radius:999px;padding:3px 9px;white-space:nowrap}
+.camb:hover{border-color:var(--maroon)}
+kbd{font-family:var(--f-mono);font-size:.72rem;border:1px solid var(--rule);border-radius:4px;padding:0 4px}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+@media (max-width:480px){.stats{gap:10px}.stat b{font-size:1.05rem}.tab{padding:10px 10px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<style>
+[hidden]{display:none!important}
+.word{font-size:clamp(2.3rem,8vw,3.4rem)}
+.vn{font-size:1.35rem;max-width:36ch;line-height:1.4}
+.zh{font-size:1.05rem}
+.ipa{font-size:1.15rem}
+.card{min-height:340px;gap:10px}
+.ex{font-size:1.05rem;max-width:52ch}
+.ex .vnx{display:block;font-family:var(--f-display);font-size:.85rem;color:var(--muted);margin-top:4px}
+.gram{font-family:var(--f-display);font-size:.82rem;font-weight:600;color:var(--good);background:var(--good-soft);padding:2px 9px;border-radius:999px}
+.gram.u{color:var(--star);background:color-mix(in srgb,var(--star) 14%,transparent)}
+.col{font-family:var(--f-display);font-size:.9rem;color:var(--muted)} .col b{color:var(--ink);font-weight:600}
+select#deck{flex:1 1 300px;font-size:1rem;padding:10px 12px}
+.brand{font-family:var(--f-display);font-weight:700;color:var(--maroon)}
+.unlockbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;background:var(--maroon-soft);border-radius:10px;padding:10px 14px;font-family:var(--f-display);font-size:.9rem}
+.unlockbar b{color:var(--maroon)}
+.lock{padding:46px 22px 26px;display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center}
+.lock .ico{font-size:2.4rem;line-height:1}
+.lock h2{font-family:var(--f-display);font-size:1.45rem;margin:0;color:var(--maroon);text-wrap:balance}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;width:100%;max-width:470px;text-align:left;counter-reset:s}
+.steps li{display:flex;gap:12px;align-items:flex-start;background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:12px 14px}
+.steps li::before{counter-increment:s;content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;background:var(--maroon);color:var(--sheet);display:grid;place-items:center;font-family:var(--f-display);font-weight:700}
+.steps .t{font-family:var(--f-display);font-weight:600}
+.steps .d{font-size:.92rem;color:var(--muted)}
+.steps .links{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.lnk{font-family:var(--f-display);font-size:.88rem;font-weight:600;text-decoration:none;border-radius:8px;padding:7px 12px;color:#fff}
+.lnk.yt{background:#c4302b}.lnk.fb{background:#1877f2}.lnk.ms{background:#0a7cff}.lnk.tt{background:#111}
+.devid{font-family:var(--f-mono);font-size:1.6rem;letter-spacing:.18em;color:var(--maroon);background:var(--sheet);border:2px dashed var(--maroon);border-radius:10px;padding:6px 16px;display:inline-block}
+.codebox{display:flex;gap:8px;width:100%;max-width:420px}
+.codebox input{flex:1;min-width:0;font-family:var(--f-mono);font-size:1.25rem;text-align:center;letter-spacing:.12em;text-transform:uppercase;border-width:2px}
+.codebox input.err{border-color:var(--bad);background:var(--bad-soft)}
+.msg{font-family:var(--f-display);font-size:.9rem;min-height:1.3em}
+.msg.ok{color:var(--good)}.msg.err{color:var(--bad)}
+.tierinfo{font-family:var(--f-display);font-size:.82rem;color:var(--muted);max-width:470px}
+.newbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-family:var(--f-display);font-size:.9rem}
+.newbadge{background:var(--star);color:#fff;font-weight:700;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:2px 9px}
+.donebox{display:flex;flex-direction:column;gap:12px;align-items:center}
+.sharepv{max-width:260px;width:100%;border-radius:12px;box-shadow:0 8px 24px -10px rgba(0,0,0,.35)}
+.story{padding:46px 22px 24px;display:flex;flex-direction:column;gap:16px}
+.sline{font-family:var(--f-body);font-size:1.12rem;line-height:2;margin:0}
+.sline .tr{display:block;font-family:var(--f-display);font-size:.85rem;line-height:1.5;color:var(--muted)}
+.sgap{display:inline-flex;flex-direction:column;vertical-align:baseline;margin:0 2px}
+.sgap input{font-family:var(--f-mono);font-size:.95rem;border:0;border-bottom:2px solid var(--maroon);background:var(--maroon-soft);border-radius:4px 4px 0 0;padding:1px 6px;width:9.5em;max-width:62vw}
+.sgap input.ok{border-color:var(--good);background:var(--good-soft)} .sgap input.err{border-color:var(--bad);background:var(--bad-soft)}
+.sgap small{font-family:var(--f-display);font-size:.72rem;line-height:1.3;color:var(--muted);max-width:13em}
+.sgap .ans{color:var(--bad);font-weight:700}
+.srow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;bottom:0;background:var(--sheet);padding:10px 0 4px;border-top:1px solid var(--rule)}
+.demoNote{font-family:var(--f-display);font-size:.8rem;color:var(--muted);border:1px dashed var(--rule);border-radius:8px;padding:8px 12px}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="sub"><span class="brand">IELTS Kể Chuyện</span> · Reading Wordbank</div>
+      <h1>Học từ vựng qua câu chuyện</h1>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="sTotal">0</b><span>từ</span></div>
+      <div class="stat k"><b id="sKnown">0</b><span>đã thuộc</span></div>
+      <div class="stat x"><b id="sWrong">0</b><span>hay sai</span></div>
+    </div>
+  </header>
+  <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+
+  <div class="unlockbar" id="unlockbar"></div>
+
+  <div class="newbar" id="newbar"></div>
+  <div class="controls">
+    <select id="deck" aria-label="Chọn bài"></select>
+  </div>
+
+  <div class="tabs" role="tablist" id="tabs">
+    <button class="tab" role="tab" data-m="card" aria-selected="true">Thẻ lật</button>
+    <button class="tab" role="tab" data-m="dict" aria-selected="false">Nghĩa → gõ từ</button>
+    <button class="tab" role="tab" data-m="story" aria-selected="false">IELTS kể chuyện</button>
+  </div>
+
+  <section id="vCard">
+    <div class="row" style="margin-bottom:10px">
+      <span class="small" id="cCount"></span>
+      <div class="chips"><button id="dirBtn">EN → VN</button><button id="shufBtn">Xáo lại</button></div>
+    </div>
+    <div class="sheet">
+      <span class="qno" id="cNo"></span><span class="deckname" id="cDeck"></span>
+      <div class="card" id="card" tabindex="0" aria-live="polite"></div>
+    </div>
+    <div class="actions" style="margin-top:12px">
+      <button class="no" id="noBtn">Chưa nhớ <kbd>1</kbd></button>
+      <button class="yes" id="yesBtn">Nhớ rồi <kbd>2</kbd></button>
+    </div>
+  </section>
+
+  <section id="vDict" hidden>
+    <div class="row" style="margin-bottom:10px">
+      <span class="small" id="dCount"></span>
+      <div class="chips"><button id="letterBtn">Gợi ý chữ cái</button></div>
+    </div>
+    <div class="sheet">
+      <span class="qno" id="dNo"></span><span class="deckname" id="dDeck"></span>
+      <div class="dict">
+        <div class="meta" id="dGram"></div>
+        <div class="vn" id="dMean" style="font-size:1.6rem;font-weight:600"></div>
+        <div class="diff" id="dLetters" style="color:var(--muted)"></div>
+        <form id="dForm" style="width:100%;display:flex;justify-content:center">
+          <input id="dInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="gõ từ tiếng Anh (dạng nguyên mẫu)">
+        </form>
+        <div id="dResult" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="actions" style="margin-top:12px">
+      <button id="skipBtn">Bỏ qua</button>
+      <button class="yes" id="checkBtn">Kiểm tra <kbd>Enter</kbd></button>
+    </div>
+  </section>
+
+  <section id="vStory" hidden>
+    <div class="sheet" style="background-image:none"><span class="qno">STORY</span><span class="deckname" id="sDeck"></span><div class="story" id="story"></div></div>
+  </section>
+
+  <section id="vLock" hidden>
+    <div class="sheet" style="background-image:none">
+      <span class="qno">LOCKED</span><span class="deckname" id="lDeck"></span>
+      <div class="lock">
+        <div class="ico" aria-hidden="true">🔒</div>
+        <h2>Bạn đã học hết 3 bài miễn phí</h2>
+        <p class="small" style="margin:0;max-width:44ch">Làm theo 3 bước dưới đây để nhận <b>mã mở khoá miễn phí</b>. Mã có hạn đến hết tháng, đầu tháng sau fanpage sẽ có mã mới.</p>
+        <ol class="steps">
+          <li><div><div class="t">Theo dõi kênh IELTS Kể Chuyện</div><div class="d">Follow YouTube, Facebook và TikTok để không bỏ lỡ bài mới.</div>
+            <div class="links"><a class="lnk yt" id="lnkYt" target="_blank" rel="noopener">▶ YouTube</a><a class="lnk fb" id="lnkFb" target="_blank" rel="noopener">f Fanpage</a><a class="lnk tt" id="lnkTt" target="_blank" rel="noopener">♪ TikTok</a></div></div></li>
+          <li><div><div class="t">Nhắn tin cho fanpage để nhận mã</div><div class="d">Vào fanpage, bấm nút <b>Nhắn tin</b>, gửi ảnh chụp đã follow kèm tin nhắn mẫu.</div>
+            <div class="links"><a class="lnk ms" id="lnkMs" target="_blank" rel="noopener">💬 Nhắn tin fanpage</a><button id="copyMsg">Sao chép tin nhắn mẫu</button></div></div></li>
+          <li><div><div class="t">Nhập mã mở khoá fanpage gửi bạn</div><div class="d">Mã có dạng 1-XXXXXX hoặc 2-XXXXXX.</div></div></li>
+        </ol>
+        <form class="codebox" id="codeForm"><input id="codeIn" placeholder="1-ABC234" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Mã mở khoá"><button class="yes" type="submit">Mở khoá</button></form>
+        <div class="msg" id="codeMsg" aria-live="polite"></div>
+        <p class="tierinfo" id="tierinfo"></p>
+      </div>
+    </div>
+  </section>
+
+  <p class="demoNote">Bản xem thử: bài Bristlecone Pines đủ 42 từ (đã viết lại câu ví dụ, có nhãn [C]/[U]); các bài khác chỉ có vài từ mẫu.</p>
+</div>
+
+<script>
+/* Shared code logic (inlined into both pages at build time). */
+const IK_SECRET='ikc-2026-đổi-chuỗi-này';
+const IK_ALPHA='ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+function ikHash(str){let h1=0xdeadbeef,h2=0x41c6ce57;for(let i=0;i<str.length;i++){const ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677)}h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909);return 4294967296*(2097151&h2)+(h1>>>0)}
+function ikMonth(d){d=d||new Date();return d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')}
+function ikCode(id,level,month){let n=ikHash(IK_SECRET+'|'+String(id).toUpperCase()+'|'+month+'|'+level),s='';for(let i=0;i<6;i++){s+=IK_ALPHA[n%IK_ALPHA.length];n=Math.floor(n/IK_ALPHA.length)}return level+'-'+s.slice(0,3)+s.slice(3)}
+function ikNormCode(s){return String(s).toUpperCase().replace(/[^A-Z0-9]/g,'')}
+function ikPool(level,month){const a=[];for(let i=1;i<=10;i++)a.push(ikCode('POOL'+i,level,month));return a}
+function ikCheck(raw,month){const v=ikNormCode(raw);for(const L of [2,1]){if(ikPool(L,month).some(c=>ikNormCode(c)===v))return L}return 0}
+
+(function(){
+const CFG={
+  links:{youtube:'https://www.youtube.com/@ieltskechuyen',facebook:'https://www.facebook.com/share/1CVZCrJ36G/',tiktok:'https://www.tiktok.com/@ieltskechuyen',messenger:'https://www.facebook.com/share/1CVZCrJ36G/'},
+  site:'ieltskechuyen.netlify.app',
+  newest:{id:37,from:'2026-10-24'},  // bài mới tuần này
+  free:[37,29,12],            // 3 bài miễn phí (3 chủ đề khác nhau)
+  tier1:[31,33,27],           // mã cấp 1 mở thêm các bài này
+  // mã cấp 2 mở toàn bộ
+};
+const DECKS=[{"id": 37, "title": "Bristlecone Pines", "topic": "Thiên nhiên – Môi trường", "n": 42}, {"id": 29, "title": "Storytelling, from prehistoric caves to modern cinemas", "topic": "Văn hoá – Nghệ thuật", "n": 58}, {"id": 12, "title": "A Brief History of Tea", "topic": "Lịch sử", "n": 57}, {"id": 31, "title": "Minds of their own", "topic": "Động vật – Khoa học", "n": 51}, {"id": 33, "title": "Loss of rare languages", "topic": "Ngôn ngữ – Xã hội", "n": 47}, {"id": 27, "title": "The Antikythera Mechanism", "topic": "Lịch sử", "n": 52}, {"id": 24, "title": "Sleep Study on Modern-Day Hunter-Gatherers", "topic": "Sức khoẻ – Con người", "n": 49}, {"id": 25, "title": "Tunnelling under the Thames", "topic": "Kỹ thuật – Công nghệ", "n": 72}];
+const CARDS=[{"id": "29:recite", "b": 29, "w": "recite", "g": "v.", "i": "/rɪˈsaɪt/", "v": "đọc thuộc lòng", "z": "背诵 (bèisòng)", "col": "recite from memory", "e": "Skilled storytellers can ⟦recite⟧ thousands of lines from memory without a single mistake.", "ev": "Những người kể chuyện lành nghề có thể đọc thuộc hàng nghìn dòng mà không sai chữ nào."}, {"id": "29:oral tradition", "b": 29, "w": "oral tradition", "g": "n. [C/U] cả hai", "i": "/ˈɔːrəl trəˈdɪʃn/", "v": "truyền thống truyền miệng", "z": "口头传统 (kǒutóu chuántǒng)", "col": "a rich oral tradition", "e": "Before writing existed, stories survived only through ⟦oral tradition⟧.", "ev": "Trước khi có chữ viết, câu chuyện chỉ được lưu giữ qua truyền thống truyền miệng."}, {"id": "29:out of the ordinary", "b": 29, "w": "out of the ordinary", "g": "phr.", "i": "/aʊt əv ði ˈɔːdnri/", "v": "khác thường", "z": "不寻常 (bù xúncháng)", "col": "something out of the ordinary", "e": "Listeners always wanted to hear about something ⟦out of the ordinary⟧, such as a dangerous hunt.", "ev": "Người nghe luôn muốn nghe về điều gì đó khác thường, chẳng hạn một cuộc săn nguy hiểm."}, {"id": "29:prime", "b": 29, "w": "prime", "g": "adj.", "i": "/praɪm/", "v": "chính, hàng đầu", "z": "首要的 (shǒuyào de)", "col": "prime purpose", "e": "The ⟦prime⟧ aim of any storyteller is to keep the audience listening.", "ev": "Mục tiêu hàng đầu của mọi người kể chuyện là giữ cho khán giả tiếp tục lắng nghe."}, {"id": "29:credible", "b": 29, "w": "credible", "g": "adj.", "i": "/ˈkredəbl/", "v": "chân thực, đáng tin", "z": "可信的 (kěxìn de)", "col": "credible characters", "e": "Homer's heroes feel ⟦credible⟧ because they argue, sulk and cry like real people.", "ev": "Các anh hùng của Homer có vẻ chân thực vì họ cãi nhau, hờn dỗi và khóc như người thật."}, {"id": "12:legend", "b": 12, "w": "legend", "g": "n. [C/U] cả hai", "i": "/ˈledʒənd/", "v": "truyền thuyết", "z": "传说 (chuánshuō)", "col": "according to legend", "e": "According to ⟦legend⟧, tea was discovered when a few leaves blew into an emperor's boiling water.", "ev": "Theo truyền thuyết, trà được phát hiện khi vài chiếc lá bay vào nồi nước sôi của một vị hoàng đế."}, {"id": "12:renowned", "b": 12, "w": "renowned", "g": "adj.", "i": "/rɪˈnaʊnd/", "v": "nổi tiếng", "z": "著名的 (zhùmíng de)", "col": "renowned for", "e": "Shen Nung, who was ⟦renowned⟧ for his knowledge of herbs, decided to taste the drink.", "ev": "Thần Nông, người nổi tiếng với hiểu biết về thảo dược, quyết định nếm thử thức uống ấy."}, {"id": "12:dynasty", "b": 12, "w": "dynasty", "g": "n. [C] đếm được", "i": "/ˈdɪnəsti/", "v": "triều đại", "z": "王朝 (wángcháo)", "col": "the Tang Dynasty", "e": "Tea became China's national drink during the Tang ⟦Dynasty⟧.", "ev": "Trà trở thành thức uống quốc gia của Trung Quốc dưới triều Đường."}, {"id": "12:sponsorship", "b": 12, "w": "sponsorship", "g": "n. [U] không đếm được", "i": "/ˈspɒnsəʃɪp/", "v": "sự bảo trợ", "z": "赞助 (zànzhù)", "col": "imperial sponsorship", "e": "Thanks to imperial ⟦sponsorship⟧, tea spread quickly from the royal court to the rest of Japanese society.", "ev": "Nhờ sự bảo trợ của hoàng gia, trà lan nhanh từ triều đình ra khắp xã hội Nhật Bản."}, {"id": "12:accidentally", "b": 12, "w": "accidentally", "g": "adv.", "i": "/ˌæksɪˈdentəli/", "v": "một cách tình cờ", "z": "偶然地 (ǒurán de)", "col": "accidentally create", "e": "The first cup of tea may have been made ⟦accidentally⟧ by a servant.", "ev": "Tách trà đầu tiên có lẽ đã được một người hầu pha ra một cách tình cờ."}, {"id": "31:cognition", "b": 31, "w": "cognition", "g": "n. [U] không đếm được", "i": "/kɒɡˈnɪʃn/", "v": "nhận thức", "z": "认知 (rènzhī)", "col": "animal cognition", "e": "Pepperberg's real goal was to understand bird ⟦cognition⟧, not to teach a parrot English.", "ev": "Mục tiêu thật của Pepperberg là hiểu nhận thức của loài chim, chứ không phải dạy vẹt tiếng Anh."}, {"id": "31:futile", "b": 31, "w": "futile", "g": "adj.", "i": "/ˈfjuːtaɪl/", "v": "vô ích", "z": "徒劳的 (túláo de)", "col": "a futile attempt", "e": "Many scientists believed that talking to a bird with such a small brain would be ⟦futile⟧.", "ev": "Nhiều nhà khoa học tin rằng trò chuyện với một con chim có bộ não nhỏ như vậy là vô ích."}, {"id": "31:imitate", "b": 31, "w": "imitate", "g": "v.", "i": "/ˈɪmɪteɪt/", "v": "bắt chước", "z": "模仿 (mófǎng)", "col": "imitate sounds", "e": "Alex learned to ⟦imitate⟧ about a hundred English words.", "ev": "Alex học cách bắt chước khoảng một trăm từ tiếng Anh."}, {"id": "37:windswept", "b": 37, "w": "windswept", "g": "adj.", "i": "/ˈwɪndswept/", "v": "lộng gió", "z": "风吹雨打的 (fēngchuī yǔdǎ de)", "col": "windswept mountain tops", "e": "Bristlecone pines grow on dry, ⟦windswept⟧ peaks in the western United States.", "ev": "Thông lông nhím mọc trên những đỉnh núi khô, lộng gió ở miền tây nước Mỹ."}, {"id": "37:altitude", "b": 37, "w": "altitude", "g": "n. [C/U] cả hai", "i": "/ˈæltɪtjuːd/", "v": "độ cao (so với mực nước biển)", "z": "海拔 (hǎibá)", "col": "at an altitude of", "e": "Most of these trees are found at an ⟦altitude⟧ of more than 3,000 metres.", "ev": "Phần lớn những cây này được tìm thấy ở độ cao hơn 3.000 mét."}, {"id": "37:inhabit", "b": 37, "w": "inhabit", "g": "v.", "i": "/ɪnˈhæbɪt/", "v": "sinh sống (ở)", "z": "居住 (jūzhù)", "col": "inhabit a place", "e": "The bristlecone can ⟦inhabit⟧ rocky slopes that other trees avoid completely.", "ev": "Thông lông nhím có thể sống trên những sườn đá mà các loài cây khác hoàn toàn tránh xa."}, {"id": "37:harsh", "b": 37, "w": "harsh", "g": "adj.", "i": "/hɑːʃ/", "v": "khắc nghiệt", "z": "严酷的 (yánkù de)", "col": "harsh environment", "e": "Very few plants survive in such a ⟦harsh⟧ environment.", "ev": "Rất ít loài cây sống sót nổi trong môi trường khắc nghiệt như vậy."}, {"id": "37:flourish", "b": 37, "w": "flourish", "g": "v.", "i": "/ˈflʌrɪʃ/", "v": "phát triển mạnh", "z": "繁荣 (fánróng)", "col": "flourish in", "e": "Surprisingly, the bristlecone does not just survive there; it ⟦flourishes⟧.", "ev": "Điều bất ngờ là thông lông nhím không chỉ sống sót ở đó mà còn phát triển mạnh."}, {"id": "37:girth", "b": 37, "w": "girth", "g": "n. [C/U] cả hai", "i": "/ɡɜːθ/", "v": "chu vi thân cây", "z": "周长 (zhōucháng)", "col": "a girth of", "e": "The trees are short, but the largest one has a ⟦girth⟧ of more than 11 metres.", "ev": "Những cây này thấp, nhưng cây lớn nhất có chu vi thân hơn 11 mét."}, {"id": "37:longevity", "b": 37, "w": "longevity", "g": "n. [U] không đếm được", "i": "/lɒnˈdʒevəti/", "v": "tuổi thọ, sự sống lâu", "z": "长寿 (chángshòu)", "col": "remarkable longevity", "e": "What really makes the species special is its ⟦longevity⟧: many trees are over 1,000 years old.", "ev": "Điều thật sự làm loài này đặc biệt là tuổi thọ: nhiều cây đã hơn 1.000 năm tuổi."}, {"id": "37:specimen", "b": 37, "w": "specimen", "g": "n. [C] đếm được", "i": "/ˈspesɪmən/", "v": "cá thể, mẫu vật", "z": "标本 (biāoběn)", "col": "the oldest specimen", "e": "The oldest ⟦specimen⟧, known as Methuselah, is more than 4,700 years old.", "ev": "Cá thể già nhất, có tên Methuselah, đã hơn 4.700 tuổi."}, {"id": "37:inhabitant", "b": 37, "w": "inhabitant", "g": "n. [C] đếm được", "i": "/ɪnˈhæbɪtənt/", "v": "cư dân, sinh vật sống ở một nơi", "z": "居民 (jūmín)", "col": "the oldest inhabitant", "e": "Methuselah may be the oldest living ⟦inhabitant⟧ of our planet.", "ev": "Methuselah có thể là sinh vật sống lâu đời nhất trên hành tinh của chúng ta."}, {"id": "37:dendrochronology", "b": 37, "w": "dendrochronology", "g": "n. [U] không đếm được", "i": "/ˌdendrəʊkrəˈnɒlədʒi/", "v": "niên đại học vòng cây", "z": "树轮年代学 (shùlún niándàixué)", "col": "a career in dendrochronology", "e": "Edmund Schulman worked in ⟦dendrochronology⟧, the science of dating trees by their rings.", "ev": "Edmund Schulman làm trong ngành niên đại học vòng cây – khoa học xác định tuổi cây qua vòng gỗ."}, {"id": "37:inversely", "b": 37, "w": "inversely", "g": "adv.", "i": "/ɪnˈvɜːsli/", "v": "ngược lại, theo chiều ngược", "z": "相反地 (xiāngfǎn de)", "col": "inversely related", "e": "Wet years produce wide rings and, ⟦inversely⟧, dry years produce narrow ones.", "ev": "Năm ẩm tạo vòng gỗ rộng, và ngược lại, năm khô tạo vòng hẹp."}, {"id": "37:variation", "b": 37, "w": "variation", "g": "n. [C/U] cả hai", "i": "/ˌveəriˈeɪʃn/", "v": "sự biến đổi, sự khác biệt", "z": "变化 (biànhuà)", "col": "variation in", "e": "Changes in rainfall cause clear ⟦variation⟧ in the width of the rings.", "ev": "Thay đổi lượng mưa tạo ra sự khác biệt rõ rệt về độ rộng của vòng gỗ."}, {"id": "37:sensitivity", "b": 37, "w": "sensitivity", "g": "n. [U] không đếm được", "i": "/ˌsensəˈtɪvəti/", "v": "độ nhạy (vòng cây biến đổi nhiều)", "z": "敏感性 (mǐngǎnxìng)", "col": "show sensitivity", "e": "Scientists use the word ⟦sensitivity⟧ for rings that change a lot from year to year.", "ev": "Các nhà khoa học dùng từ “độ nhạy” cho những vòng gỗ thay đổi nhiều qua từng năm."}, {"id": "37:complacency", "b": 37, "w": "complacency", "g": "n. [U] không đếm được", "i": "/kəmˈpleɪsnsi/", "v": "độ trơ (vòng cây gần như không đổi)", "z": "自满 (zìmǎn)", "col": "—", "e": "Rings that look almost the same every year show ⟦complacency⟧.", "ev": "Những vòng gỗ gần như giống nhau mỗi năm thể hiện “độ trơ”."}, {"id": "37:chronology", "b": 37, "w": "chronology", "g": "n. [C] đếm được", "i": "/krəˈnɒlədʒi/", "v": "niên biểu, trình tự thời gian", "z": "年表 (niánbiǎo)", "col": "establish a chronology", "e": "By comparing many trees, researchers can build a ⟦chronology⟧ of past climates.", "ev": "Bằng cách so sánh nhiều cây, các nhà nghiên cứu xây dựng được niên biểu khí hậu trong quá khứ."}, {"id": "37:dating", "b": 37, "w": "dating", "g": "n. [U] không đếm được", "i": "/ˈdeɪtɪŋ/", "v": "việc xác định niên đại", "z": "定年 (dìngnián)", "col": "precise dating", "e": "Tree rings allow very precise ⟦dating⟧ of droughts that happened centuries ago.", "ev": "Vòng cây cho phép xác định rất chính xác thời điểm những đợt hạn hán xảy ra từ nhiều thế kỷ trước."}, {"id": "37:overlapping", "b": 37, "w": "overlapping", "g": "adj.", "i": "/ˌəʊvəˈlæpɪŋ/", "v": "chồng lấp, trùng nhau một phần", "z": "重叠的 (chóngdié de)", "col": "overlapping patterns", "e": "When two samples show ⟦overlapping⟧ patterns, the record can be pushed further back in time.", "ev": "Khi hai mẫu có những mô hình trùng nhau, dữ liệu có thể được kéo dài xa hơn về quá khứ."}, {"id": "37:distorted", "b": 37, "w": "distorted", "g": "adj.", "i": "/dɪˈstɔːtɪd/", "v": "cong vẹo, méo mó", "z": "扭曲的 (niǔqū de)", "col": "distorted shape", "e": "Schulman looked for short trees with twisted, ⟦distorted⟧ trunks.", "ev": "Schulman tìm những cây thấp có thân xoắn, cong vẹo."}, {"id": "37:dwarfed", "b": 37, "w": "dwarfed", "g": "adj.", "i": "/dwɔːft/", "v": "còi cọc, lùn", "z": "矮小的 (ǎixiǎo de)", "col": "dwarfed trees", "e": "These ⟦dwarfed⟧ trees near the tree line turned out to be the oldest.", "ev": "Những cây còi cọc gần giới hạn rừng hoá ra lại là những cây già nhất."}, {"id": "37:survey", "b": 37, "w": "survey", "g": "n. [C] đếm được", "i": "/ˈsɜːveɪ/", "v": "cuộc khảo sát", "z": "调查 (diàochá)", "col": "carry out a survey", "e": "In the 1950s, Schulman carried out a large ⟦survey⟧ from California to Colorado.", "ev": "Vào thập niên 1950, Schulman tiến hành một cuộc khảo sát lớn từ California đến Colorado."}, {"id": "37:stand", "b": 37, "w": "stand", "g": "n. [C] đếm được", "i": "/stænd/", "v": "quần thể cây, khoảnh rừng", "z": "林分 (línfèn)", "col": "a stand of trees", "e": "His team studied every ⟦stand⟧ of bristlecones they could reach.", "ev": "Nhóm của ông nghiên cứu mọi quần thể thông lông nhím mà họ tới được."}, {"id": "37:elevation", "b": 37, "w": "elevation", "g": "n. [C/U] cả hai", "i": "/ˌelɪˈveɪʃn/", "v": "độ cao", "z": "高度 (gāodù)", "col": "at high elevation", "e": "The oldest trees grew at an ⟦elevation⟧ of over 3,000 metres.", "ev": "Những cây già nhất mọc ở độ cao trên 3.000 mét."}, {"id": "37:bark", "b": 37, "w": "bark", "g": "n. [U] không đếm được", "i": "/bɑːk/", "v": "vỏ cây", "z": "树皮 (shùpí)", "col": "living bark", "e": "Many old trees are mostly dead wood with only a thin strip of living ⟦bark⟧.", "ev": "Nhiều cây già phần lớn là gỗ chết, chỉ còn một dải vỏ sống mỏng."}, {"id": "37:scant", "b": 37, "w": "scant", "g": "adj.", "i": "/skænt/", "v": "ít ỏi, khan hiếm", "z": "缺乏的 (quēfá de)", "col": "scant rainfall", "e": "With ⟦scant⟧ soil and water, the trees grow extremely slowly.", "ev": "Với đất và nước ít ỏi, những cây này lớn cực kỳ chậm."}, {"id": "37:guidepost", "b": 37, "w": "guidepost", "g": "n. [C] đếm được", "i": "/ˈɡaɪdpəʊst/", "v": "kim chỉ nam, điều định hướng", "z": "指南 (zhǐnán)", "col": "serve as a guidepost", "e": "Schulman hoped these trees could serve as a ⟦guidepost⟧ for understanding long life.", "ev": "Schulman hy vọng những cây này có thể là kim chỉ nam để hiểu về sự sống lâu."}, {"id": "37:subalpine", "b": 37, "w": "subalpine", "g": "adj.", "i": "/sʌbˈælpaɪn/", "v": "(thuộc) vùng cận núi cao", "z": "亚高山的 (yà gāoshān de)", "col": "subalpine zone", "e": "In the ⟦subalpine⟧ zone, summer may last only about six weeks.", "ev": "Ở vùng cận núi cao, mùa hè có thể chỉ kéo dài khoảng sáu tuần."}, {"id": "37:overwinter", "b": 37, "w": "overwinter", "g": "v.", "i": "/ˌəʊvəˈwɪntə/", "v": "qua đông, sống qua mùa đông", "z": "越冬 (yuèdōng)", "col": "overwinter successfully", "e": "In that short summer, the trees must store enough energy to ⟦overwinter⟧.", "ev": "Trong mùa hè ngắn ngủi đó, cây phải tích đủ năng lượng để qua đông."}, {"id": "37:foliage", "b": 37, "w": "foliage", "g": "n. [U] không đếm được", "i": "/ˈfəʊliɪdʒ/", "v": "tán lá, lá cây", "z": "树叶 (shùyè)", "col": "new foliage", "e": "Because the needles live for decades, growing new ⟦foliage⟧ costs very little energy.", "ev": "Vì lá kim sống hàng chục năm, việc mọc lá mới tốn rất ít năng lượng."}, {"id": "37:photosynthetic", "b": 37, "w": "photosynthetic", "g": "adj.", "i": "/ˌfəʊtəʊsɪnˈθetɪk/", "v": "(thuộc) quang hợp", "z": "光合的 (guānghé de)", "col": "photosynthetic capacity", "e": "Long-lived needles give the tree a steady ⟦photosynthetic⟧ capacity, even in bad years.", "ev": "Lá kim sống lâu cho cây khả năng quang hợp ổn định, kể cả trong những năm khắc nghiệt."}, {"id": "37:dieback", "b": 37, "w": "dieback", "g": "n. [U] không đếm được", "i": "/ˈdaɪbæk/", "v": "sự chết dần (của cành, vỏ)", "z": "枯梢 (kūshāo)", "col": "gradual dieback", "e": "After fire or drought, a slow ⟦dieback⟧ of bark helps the tree survive.", "ev": "Sau hoả hoạn hay hạn hán, việc vỏ cây chết dần giúp cây sống sót."}, {"id": "37:tissue", "b": 37, "w": "tissue", "g": "n. [U] không đếm được", "i": "/ˈtɪʃuː/", "v": "mô (sinh học)", "z": "组织 (zǔzhī)", "col": "living tissue", "e": "With less living ⟦tissue⟧ to feed, the tree can keep the rest healthy.", "ev": "Khi phải nuôi ít mô sống hơn, cây có thể giữ phần còn lại khoẻ mạnh."}, {"id": "37:crown", "b": 37, "w": "crown", "g": "n. [C] đếm được", "i": "/kraʊn/", "v": "tán cây (phần ngọn)", "z": "树冠 (shùguān)", "col": "the crown of a tree", "e": "The ⟦crown⟧ of the tree only needs to supply nutrients to the parts that are still alive.", "ev": "Tán cây chỉ cần cung cấp dinh dưỡng cho những phần còn sống."}, {"id": "37:sustain", "b": 37, "w": "sustain", "g": "v.", "i": "/səˈsteɪn/", "v": "phải chịu (thiệt hại, chấn thương)", "z": "遭受 (zāoshòu)", "col": "sustain damage", "e": "Even when a tree ⟦sustains⟧ serious damage, part of it can live on.", "ev": "Ngay cả khi cây chịu tổn thương nặng, một phần của nó vẫn có thể sống tiếp."}, {"id": "37:prey upon", "b": 37, "w": "prey upon", "g": "phr. v.", "i": "/preɪ əˈpɒn/", "v": "tấn công, săn (con mồi)", "z": "捕食 (bǔshí)", "col": "prey upon plants", "e": "Insects that ⟦prey upon⟧ most trees rarely attack the bristlecone.", "ev": "Những loài côn trùng tấn công hầu hết các loài cây hiếm khi tấn công thông lông nhím."}, {"id": "37:resinous", "b": 37, "w": "resinous", "g": "adj.", "i": "/ˈrezɪnəs/", "v": "nhiều nhựa", "z": "含树脂的 (hán shùzhī de)", "col": "resinous wood", "e": "Its ⟦resinous⟧ wood protects it from bacteria and fungi.", "ev": "Gỗ nhiều nhựa giúp nó chống lại vi khuẩn và nấm."}, {"id": "37:rot", "b": 37, "w": "rot", "g": "v.", "i": "/rɒt/", "v": "mục, thối rữa", "z": "腐烂 (fǔlàn)", "col": "start to rot", "e": "The dry mountain air stops dead wood from ⟦rotting⟧ quickly.", "ev": "Không khí núi khô giữ cho gỗ chết không bị mục nhanh."}, {"id": "37:exposed", "b": 37, "w": "exposed", "g": "adj.", "i": "/ɪkˈspəʊzd/", "v": "trống trải, hứng gió", "z": "暴露的 (bàolù de)", "col": "an exposed site", "e": "The oldest trees stand in the most ⟦exposed⟧ places, far apart from each other.", "ev": "Những cây già nhất đứng ở nơi trống trải nhất, cách xa nhau."}, {"id": "37:litter", "b": 37, "w": "litter", "g": "n. [U] không đếm được", "i": "/ˈlɪtə/", "v": "lớp lá rụng (trên mặt đất)", "z": "落叶层 (luòyècéng)", "col": "leaf litter", "e": "There is very little leaf ⟦litter⟧ on the ground to catch fire.", "ev": "Trên mặt đất có rất ít lá rụng có thể bắt lửa."}, {"id": "37:ground cover", "b": 37, "w": "ground cover", "g": "n. [U] không đếm được", "i": "/ɡraʊnd ˈkʌvə/", "v": "lớp thực vật phủ mặt đất", "z": "地被 (dìbèi)", "col": "lack of ground cover", "e": "With no ⟦ground cover⟧ between the trees, a fire cannot spread easily.", "ev": "Không có lớp thực vật phủ giữa các cây, lửa khó lan ra."}, {"id": "37:distance", "b": 37, "w": "distance", "g": "n. [C/U] cả hai", "i": "/ˈdɪstəns/", "v": "khoảng cách", "z": "距离 (jùlí)", "col": "keep a distance", "e": "The large ⟦distance⟧ between trees means one burning tree does not set others alight.", "ev": "Khoảng cách lớn giữa các cây khiến một cây cháy không làm các cây khác bắt lửa."}, {"id": "37:vandalism", "b": 37, "w": "vandalism", "g": "n. [U] không đếm được", "i": "/ˈvændəlɪzəm/", "v": "sự phá hoại (tài sản công)", "z": "故意破坏 (gùyì pòhuài)", "col": "the threat of vandalism", "e": "Today the main danger is ⟦vandalism⟧ by careless visitors.", "ev": "Ngày nay mối nguy chính là sự phá hoại của những du khách thiếu ý thức."}, {"id": "37:plaque", "b": 37, "w": "plaque", "g": "n. [C] đếm được", "i": "/plæk/", "v": "biển tên (gắn lên vật)", "z": "铭牌 (míngpái)", "col": "a plaque marks", "e": "For this reason, no ⟦plaque⟧ shows visitors which tree is Methuselah.", "ev": "Vì lý do này, không có tấm biển nào cho du khách biết cây nào là Methuselah."}];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+const SPK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>';
+const LS=k=>'ikc-'+k;
+const get=(k,d)=>{try{const v=localStorage.getItem(LS(k));return v==null?d:JSON.parse(v)}catch(e){return d}};
+const put=(k,v)=>{try{localStorage.setItem(LS(k),JSON.stringify(v))}catch(e){}};
+
+/* ----- analytics hook (Plausible / GA4 if installed) ----- */
+function track(name,props){try{if(window.plausible)window.plausible(name,{props});if(window.gtag)window.gtag('event',name,props||{})}catch(e){}}
+/* ----- unlock (pool codes, rotate monthly) ----- */
+function level(){const u=get('unlock',null);if(!u||u.m!==ikMonth())return 0;return u.l}
+function isOpen(b){const L=level();return CFG.free.includes(b)||(L>=1&&CFG.tier1.includes(b))||L>=2}
+function tryCode(raw){const m=ikMonth(),L=ikCheck(raw,m);if(L)put('unlock',{l:L,m});return L}
+const isNew=b=>CFG.newest&&CFG.newest.id===b&&(Date.now()-new Date(CFG.newest.from))<7*864e5;
+/* ----- progress ----- */
+let P=get('progress',{});
+const st=id=>P[id]||(P[id]={l:0,x:0});
+const known=c=>P[c.id]&&P[c.id].l>=2, wrong=c=>P[c.id]&&P[c.id].x>0&&P[c.id].l<3;
+const save=()=>put('progress',P);
+
+/* ----- deck select grouped by topic ----- */
+let deck=get('deck',CFG.free[0]), mode='card';
+{const q=new URLSearchParams(location.search).get('bai');if(q&&DECKS.some(d=>d.id===+q))deck=+q}
+const sel=$('#deck');
+function fillSel(){
+  const groups={};DECKS.forEach(d=>{(groups[d.topic]=groups[d.topic]||[]).push(d)});
+  sel.innerHTML=Object.keys(groups).map(t=>`<optgroup label="${esc(t)}">`+groups[t].map(d=>`<option value="${d.id}">${isOpen(d.id)?'':'🔒 '}${isNew(d.id)?'🆕 ':''}${esc(d.title)} · ${d.n} từ</option>`).join('')+'</optgroup>').join('');
+  sel.value=deck;
+}
+function unlockBar(){
+  const L=level(),open=DECKS.filter(d=>isOpen(d.id)).length;
+  const end=new Date();end.setMonth(end.getMonth()+1,0);
+  $('#unlockbar').innerHTML=L?`<span>✅ Đã mở khoá <b>cấp ${L}</b> · ${open}/${DECKS.length} bài · hết hạn ${end.toLocaleDateString('vi-VN')}</span>`:`<span>Bạn đang dùng <b>${CFG.free.length} bài miễn phí</b>. Mở thêm ${DECKS.length-open} bài bằng mã từ fanpage.</span><button id="goUnlock">Nhận mã mở khoá</button>`;
+  const g=$('#goUnlock');if(g)g.onclick=()=>showLock(true);
+}
+function newBar(){const n=CFG.newest&&DECKS.find(d=>d.id===CFG.newest.id);$('#newbar').innerHTML=n?`<span class="newbadge">Bài mới tuần này</span><span>${esc(n.title)}</span><button id="goNew">Học ngay</button><span class="small">· Mỗi tuần một bài mới</span>`:'';const g=$('#goNew');if(g)g.onclick=()=>{deck=n.id;sel.value=deck;put('deck',deck);show()}}
+function pool(){return CARDS.filter(c=>c.b===deck)}
+function stats(){const a=pool();$('#sTotal').textContent=a.length;$('#sKnown').textContent=a.filter(known).length;$('#sWrong').textContent=a.filter(wrong).length;$('#bar').style.width=(a.length?a.filter(known).length/a.length*100:0)+'%'}
+const title=b=>DECKS.find(d=>d.id===b).title;
+function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.95;speechSynthesis.speak(u)}catch(e){}}
+function gram(c){if(!c.g)return'';const u=/\[U\]/.test(c.g)&&!/\[C\]/.test(c.g);return `<span class="gram${u?' u':''}">${esc(c.g)}</span>`}
+
+/* ----- flashcards ----- */
+let queue=[],qi=0,flipped=false,dirVN=false;
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const hl=c=>esc(c.e).replace(/⟦(.*?)⟧/,'<mark>$1</mark>');
+const plain=c=>c.e.replace(/[⟦⟧]/g,'');
+function exHTML(c){return `<div class="ex"><div><span class="lbl">Ví dụ</span>${hl(c)}<span class="vnx">${esc(c.ev)}</span></div><button class="speak" data-say="${esc(plain(c))}" aria-label="Nghe câu ví dụ">${SPK}</button></div>`}
+function face(c,side){
+  const head=`<div class="word">${esc(c.w)}</div><div class="meta">${gram(c)}<span class="ipa">${esc(c.i)}</span><button class="speak" data-say="${esc(c.w)}" aria-label="Nghe phát âm">${SPK}</button></div>`;
+  const mean=`<div class="vn">${esc(c.v)}</div><div class="zh">${esc(c.z)}</div>${c.col?`<div class="col">Collocation: <b>${esc(c.col)}</b></div>`:''}${exHTML(c)}`;
+  if(!dirVN)return side?head+`<div class="back">${mean}</div>`:head+'<div class="hint">chạm để xem nghĩa</div>';
+  return side?`<div class="back" style="border:none;margin:0;padding:0">${mean}</div>`+head:`<div class="vn" style="font-size:1.6rem;font-weight:600">${esc(c.v)}</div><div class="meta">${gram(c)}</div><div class="hint">chạm để xem từ tiếng Anh</div>`;
+}
+function renderCard(){
+  const el=$('#card');
+  if(qi>=queue.length){const k=pool().filter(c=>P[c.id]&&P[c.id].l>=1).length;el.innerHTML=`<div class="empty donebox"><b>🎉 Xong ${queue.length} thẻ – đã thuộc ${k}/${pool().length} từ!</b><button class="yes" id="mkShare">Tạo thẻ thành tích để chia sẻ</button><img class="sharepv" id="sharepv" hidden alt="Thẻ thành tích"><div class="chips" id="shareAct" hidden><button id="dlShare">Tải ảnh</button><button id="nsShare">Chia sẻ</button></div></div>`;$('#cNo').textContent='';$('#cCount').textContent='';track('finish_round',{deck:title(deck)});$('#mkShare').onclick=e=>{e.stopPropagation();shareCard(k)};return}
+  const c=queue[qi];el.innerHTML=face(c,flipped);$('#cNo').textContent=String(qi+1).padStart(3,'0');$('#cDeck').textContent=title(c.b);$('#cCount').textContent=`Thẻ ${qi+1} / ${queue.length}`;
+}
+function shareCard(k){
+  const c=document.createElement('canvas');c.width=1080;c.height=1350;const x=c.getContext('2d');
+  const g=x.createLinearGradient(0,0,0,1350);g.addColorStop(0,'#8c2236');g.addColorStop(1,'#4e1220');x.fillStyle=g;x.fillRect(0,0,1080,1350);
+  x.fillStyle='rgba(255,255,255,.08)';for(let y=180;y<1350;y+=64)x.fillRect(0,y,1080,2);
+  x.fillStyle='#fff';x.textAlign='center';
+  x.font='700 46px "Familjen Grotesk",sans-serif';x.fillText('IELTS KỂ CHUYỆN',540,150);
+  x.font='500 40px "Familjen Grotesk",sans-serif';x.fillStyle='#f6d9df';x.fillText('Reading Wordbank',540,215);
+  x.fillStyle='#fff';x.font='700 300px "Familjen Grotesk",sans-serif';x.fillText(String(k),540,620);
+  x.font='600 64px "Familjen Grotesk",sans-serif';x.fillText('từ vựng IELTS đã thuộc',540,720);
+  const t=title(deck);x.font='600 54px "Literata",serif';
+  const words=t.split(' ');let line='',y=860;for(const w of words){const tt=line?line+' '+w:w;if(x.measureText(tt).width>900){x.fillText(line,540,y);y+=70;line=w}else line=tt}x.fillText(line,540,y);
+  x.font='500 40px "Familjen Grotesk",sans-serif';x.fillStyle='#f6d9df';x.fillText(new Date().toLocaleDateString('vi-VN'),540,y+90);
+  x.fillStyle='#fff';x.font='600 44px "Familjen Grotesk",sans-serif';x.fillText('Học cùng mình tại '+CFG.site,540,1260);
+  const url=c.toDataURL('image/png');$('#sharepv').src=url;$('#sharepv').hidden=false;$('#shareAct').hidden=false;
+  $('#dlShare').onclick=e=>{e.stopPropagation();const a=document.createElement('a');a.href=url;a.download='ielts-ke-chuyen-'+deck+'.png';a.click();track('share_card',{type:'download'})};
+  $('#nsShare').onclick=async e=>{e.stopPropagation();try{const blob=await (await fetch(url)).blob();const f=new File([blob],'ielts-ke-chuyen.png',{type:'image/png'});if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],text:'Mình vừa học xong '+k+' từ IELTS cùng IELTS Kể Chuyện – '+CFG.site});track('share_card',{type:'native'})}else{$('#dlShare').click()}}catch(err){}};
+}
+function flip(){if(qi<queue.length){flipped=!flipped;renderCard()}}
+function answer(ok){if(qi>=queue.length)return;const c=queue[qi],s=st(c.id);if(ok)s.l=Math.min(3,s.l+1);else{s.l=0;s.x++;queue.splice(Math.min(queue.length,qi+4),0,c)}save();qi++;flipped=false;renderCard();stats()}
+$('#card').addEventListener('click',e=>{const b=e.target.closest('[data-say]');if(b){e.stopPropagation();speak(b.dataset.say);return}flip()});
+$('#noBtn').onclick=()=>answer(false);$('#yesBtn').onclick=()=>answer(true);
+$('#shufBtn').onclick=()=>{queue=shuffle(pool().slice());qi=0;flipped=false;renderCard()};
+$('#dirBtn').onclick=()=>{dirVN=!dirVN;$('#dirBtn').textContent=dirVN?'VN → EN':'EN → VN';flipped=false;renderCard()};
+
+/* ----- type the word ----- */
+let dq=[],di=0,checked=false,shown=0;
+const norm=s=>String(s).toLowerCase().replace(/\s+/g,' ').trim();
+function renderDict(){
+  checked=false;const inp=$('#dInput');inp.value='';inp.className='';$('#dResult').innerHTML='';
+  if(di>=dq.length){$('#dMean').textContent='';$('#dGram').innerHTML='';$('#dLetters').textContent='';$('#dResult').innerHTML=`<div class="empty"><b>Xong ${dq.length} từ.</b></div>`;inp.disabled=true;return}
+  inp.disabled=false;const c=dq[di];$('#dNo').textContent=String(di+1).padStart(3,'0');$('#dDeck').textContent=title(c.b);$('#dCount').textContent=`Từ ${di+1} / ${dq.length}`;
+  $('#dMean').textContent=c.v;$('#dGram').innerHTML=gram(c);shown=0;letters();
+}
+function letters(){const c=dq[di];let n=0,o='';for(const ch of c.w){if(/[a-z]/i.test(ch)){o+=n<shown?ch:'_';n++}else o+=ch===' '?' ':ch}$('#dLetters').textContent=o.split('').join(' ')}
+function check(){
+  if(di>=dq.length)return;if(checked){di++;renderDict();$('#dInput').focus();return}
+  const c=dq[di],v=norm($('#dInput').value);if(!v)return;const ok=v===norm(c.w),s=st(c.id);checked=true;
+  if(ok){s.l=Math.min(3,s.l+1);$('#dInput').className='ok'}else{s.l=0;s.x++;$('#dInput').className='err'}save();stats();
+  let note='';if(!ok&&(v===norm(c.w)+'s'||v===norm(c.w)+'es'))note='<p class="small" style="color:var(--bad);margin:4px 0 0">Gõ dạng nguyên mẫu, không thêm s.</p>';
+  $('#dResult').innerHTML=(ok?`<div class="diff" style="color:var(--good)">✓ ${esc(c.w)}</div>`:`<div class="small">Đáp án đúng</div><div class="word" style="font-size:1.9rem">${esc(c.w)}</div>`)+note+`<div class="meta" style="margin-top:6px">${gram(c)}<span class="ipa">${esc(c.i)}</span></div><div style="display:flex;justify-content:center">${exHTML(c)}</div><p class="hint">Nhấn Enter để sang từ tiếp theo</p>`;
+}
+$('#dResult').addEventListener('click',e=>{const b=e.target.closest('[data-say]');if(b)speak(b.dataset.say)});
+$('#dForm').onsubmit=e=>{e.preventDefault();check()};$('#checkBtn').onclick=check;$('#skipBtn').onclick=()=>{di++;renderDict()};
+$('#letterBtn').onclick=()=>{if(checked||di>=dq.length)return;shown++;letters();$('#dInput').focus()};
+
+/* ----- lock screen ----- */
+$('#lnkYt').href=CFG.links.youtube;$('#lnkFb').href=CFG.links.facebook;$('#lnkMs').href=CFG.links.messenger;$('#lnkTt').href=CFG.links.tiktok;
+
+$('#tierinfo').innerHTML=`Mã cấp 1 mở thêm ${CFG.tier1.length} bài · Mã cấp 2 mở toàn bộ ${DECKS.length} bài. Mã có hạn đến hết tháng.`;
+$('#copyMsg').onclick=()=>{const t=`Chào IELTS Kể Chuyện, mình đã follow kênh. Cho mình xin mã mở khoá Reading Wordbank nhé!`;try{navigator.clipboard.writeText(t);$('#copyMsg').textContent='Đã sao chép ✓'}catch(e){prompt('Sao chép tin nhắn này:',t)}};
+$('#codeForm').onsubmit=e=>{e.preventDefault();const L=tryCode($('#codeIn').value);
+  track(L?'unlock_success':'unlock_fail',{level:L});
+  if(L){$('#codeMsg').className='msg ok';$('#codeMsg').textContent=`Mở khoá cấp ${L} thành công!`;fillSel();unlockBar();setTimeout(()=>{if(isOpen(deck))show()},700)}
+  else{$('#codeIn').className='err';$('#codeMsg').className='msg err';$('#codeMsg').textContent='Mã chưa đúng hoặc đã hết hạn (mã của tháng trước). Nhắn fanpage để lấy mã mới nhé.'}};
+
+function renderStory(){
+  const box=$('#story');$('#sDeck').textContent=title(deck);
+  const cs=pool();let k=0,h='<p class="small" style="margin:0">Gõ lại từ còn thiếu (dạng nguyên mẫu hoặc đúng dạng trong câu). Dưới mỗi ô là nghĩa tiếng Việt.</p>';
+  for(const c of cs){const m=c.e.match(/^(.*)⟦(.*?)⟧(.*)$/);if(!m)continue;h+=`<p class="sline">${esc(m[1])}<span class="sgap"><input data-i="${k++}" data-id="${esc(c.id)}" data-form="${esc(norm(m[2]))}" aria-label="${esc(c.v)}" autocomplete="off" autocapitalize="off" spellcheck="false"><small>${esc(c.v)}</small></span>${esc(m[3])}<span class="tr" hidden>${esc(c.ev)}</span></p>`}
+  h+=`<div class="srow"><button class="yes" id="sChk">Kiểm tra</button><button id="sShow">Hiện đáp án</button><button id="sTr">Hiện bản dịch</button><button id="sClr">Làm lại</button><span class="small" id="sFb"></span></div>`;
+  box.innerHTML=h;const ins=[...box.querySelectorAll('.sgap input')];
+  ins.forEach((inp,i)=>inp.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();(ins[i+1]||inp).focus()}});
+  const byId=id=>CARDS.find(c=>c.id===id);
+  $('#sChk').onclick=()=>{let ok=0;ins.forEach(inp=>{const c=byId(inp.dataset.id),v=norm(inp.value),good=!!v&&(v===norm(c.w)||v===inp.dataset.form);inp.className=good?'ok':(v?'err':'');if(good)ok++});$('#sFb').textContent=`Đúng ${ok} / ${ins.length}`;track('story_check',{deck:title(deck),ok,total:ins.length})};
+  $('#sShow').onclick=()=>ins.forEach(inp=>{const sm=inp.nextElementSibling;if(!sm.querySelector('.ans'))sm.insertAdjacentHTML('afterbegin',`<span class="ans">${esc(byId(inp.dataset.id).w)}</span> · `)});
+  $('#sTr').onclick=()=>box.querySelectorAll('.sline .tr').forEach(x=>x.hidden=!x.hidden);
+  $('#sClr').onclick=renderStory;
+}
+let forceLock=false;
+function showLock(f){forceLock=!!f;show()}
+function show(){
+  const locked=forceLock||!isOpen(deck);
+  $('#vLock').hidden=!locked;$('#tabs').hidden=locked;
+  $('#vCard').hidden=locked||mode!=='card';$('#vDict').hidden=locked||mode!=='dict';$('#vStory').hidden=locked||mode!=='story';
+  $('#lDeck').textContent=title(deck);
+  if(locked){const d=DECKS.find(x=>x.id===deck);$('#sTotal').textContent=d.n;$('#sKnown').textContent='–';$('#sWrong').textContent='–';$('#bar').style.width='0';return}
+  track('open_deck',{deck:title(deck),mode});
+  if(mode==='card'){queue=shuffle(pool().slice());qi=0;flipped=false;renderCard()}
+  else if(mode==='dict'){dq=shuffle(pool().slice());di=0;renderDict()}
+  else renderStory();
+  stats();
+}
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{mode=t.dataset.m;document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));show()});
+sel.onchange=()=>{deck=+sel.value;put('deck',deck);forceLock=false;show()};
+document.addEventListener('keydown',e=>{if(mode!=='card'||e.target.matches('input,select'))return;if(e.code==='Space'){e.preventDefault();flip()}else if(e.key==='1')answer(false);else if(e.key==='2')answer(true)});
+fillSel();unlockBar();newBar();show();
+})();
+</script>
