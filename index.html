@@ -176,6 +176,7 @@ html,body{overflow-anchor:none}
   .tabs{position:sticky;top:0;z-index:5;background:var(--paper)}
   .tab{flex:1;padding:10px 4px;font-size:.92rem}
   .tab .lg{display:none}
+  .sub .rw{display:none}
   header h1{display:none}
   header{flex-direction:row;align-items:center;justify-content:space-between;padding-bottom:8px}
   .stat{display:flex;align-items:baseline;gap:3px}.stat span{font-size:.62rem}
@@ -207,7 +208,7 @@ html,body{overflow-anchor:none}
  <aside class="side">
   <header>
     <div>
-      <div class="sub"><span class="brand">IELTS Kể Chuyện</span> · Reading Wordbank</div>
+      <div class="sub"><span class="brand">IELTS Kể Chuyện</span><span class="rw"> · Reading Wordbank</span></div>
       <h1>Học từ vựng qua câu chuyện</h1>
     </div>
     <div class="stats">
@@ -229,7 +230,7 @@ html,body{overflow-anchor:none}
  <main class="main">
   <div class="tabs" role="tablist" id="tabs">
     <button class="tab" role="tab" data-m="card" aria-selected="true">Thẻ lật</button>
-    <button class="tab" role="tab" data-m="dict" aria-selected="false">Nghĩa → gõ từ</button>
+    <button class="tab" role="tab" data-m="dict" aria-selected="false"><span class="lg">Nghĩa → gõ từ</span><span class="sm">Gõ từ</span></button>
     <button class="tab" role="tab" data-m="story" aria-selected="false"><span class="lg">IELTS kể chuyện</span><span class="sm">Kể chuyện</span></button>
   </div>
 
@@ -280,7 +281,7 @@ html,body{overflow-anchor:none}
       <span class="qno">LOCKED</span><span class="deckname" id="lDeck"></span>
       <div class="lock">
         <div class="ico" aria-hidden="true">🔒</div>
-        <h2>Bạn đã học hết 3 bài miễn phí</h2>
+        <h2>Bài này cần mã mở khoá</h2>
         <p class="small" style="margin:0;max-width:44ch">Làm theo 3 bước dưới đây để nhận <b>mã mở khoá miễn phí</b>. Mã có hạn đến hết tháng, đầu tháng sau fanpage sẽ có mã mới.</p>
         <ol class="steps">
           <li><div><div class="t">Theo dõi kênh IELTS Kể Chuyện</div><div class="d">Follow YouTube, Facebook và TikTok để không bỏ lỡ bài mới.</div>
