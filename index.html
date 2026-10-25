@@ -403,11 +403,11 @@ function shareCard(k){
   x.font='700 46px "Familjen Grotesk",sans-serif';x.fillText('IELTS KỂ CHUYỆN',540,150);
   x.font='500 40px "Familjen Grotesk",sans-serif';x.fillStyle='#f6d9df';x.fillText('Reading Wordbank',540,215);
   x.fillStyle='#fff';x.font='700 300px "Familjen Grotesk",sans-serif';x.fillText(String(k),540,620);
-  x.font='600 64px "Familjen Grotesk",sans-serif';x.fillText('từ vựng IELTS đã thuộc',540,720);
+  x.font='600 64px "Familjen Grotesk",sans-serif';x.fillText('từ vựng IELTS đã nhớ',540,720);
   const t=title(deck);x.font='600 54px "Literata",serif';
   const words=t.split(' ');let line='',y=860;for(const w of words){const tt=line?line+' '+w:w;if(x.measureText(tt).width>900){x.fillText(line,540,y);y+=70;line=w}else line=tt}x.fillText(line,540,y);
   x.font='500 40px "Familjen Grotesk",sans-serif';x.fillStyle='#f6d9df';x.fillText(new Date().toLocaleDateString('vi-VN'),540,y+90);
-  x.fillStyle='#fff';x.font='600 44px "Familjen Grotesk",sans-serif';x.fillText('Học cùng mình tại '+CFG.site,540,1260);
+  x.fillStyle='#fff';x.font='600 40px "Familjen Grotesk",sans-serif';x.fillText('Học cùng mình tại',540,1225);x.font='600 38px "Familjen Grotesk",sans-serif';{let fs=38;while(x.measureText(CFG.site).width>1000&&fs>24){fs-=2;x.font='600 '+fs+'px "Familjen Grotesk",sans-serif'}}x.fillText(CFG.site,540,1280);
   const url=c.toDataURL('image/png');$('#sharepv').src=url;$('#sharepv').hidden=false;$('#shareAct').hidden=false;
   $('#dlShare').onclick=e=>{e.stopPropagation();const a=document.createElement('a');a.href=url;a.download='ielts-ke-chuyen-'+deck+'.png';a.click();track('share_card',{type:'download'})};
   $('#nsShare').onclick=async e=>{e.stopPropagation();try{const blob=await (await fetch(url)).blob();const f=new File([blob],'ielts-ke-chuyen.png',{type:'image/png'});if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],text:'Mình vừa học xong '+k+' từ IELTS cùng IELTS Kể Chuyện – '+CFG.site});track('share_card',{type:'native'})}else{$('#dlShare').click()}}catch(err){}};
