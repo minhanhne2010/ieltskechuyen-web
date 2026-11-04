@@ -1,0 +1,4 @@
+# Website đã chuyển sang Cloudflare (vocab.ieltskechuyen.workers.dev).
+# Lệnh ignore trả về 0 nên Netlify bỏ qua mọi lần build, không trừ credit.
+[build]
+  ignore = "exit 0"
